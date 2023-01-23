@@ -1,30 +1,32 @@
+using app.Dto;
 using app.test.Models;
 
-namespace app.test.Stubs;
-
-public class OperationData : TheoryData<OperationModel>
+namespace app.test.Stubs
 {
-    public OperationData()
+    public class OperationData : TheoryData<OperationModel>
     {
-        Add(new OperationModel()
+        public OperationData()
         {
-            Operation = new OperationRequest() { Parameter1 = 2, Parameter2 = 2, Operation = "+" },
-            ExpectedResult = 4
-        });
-        Add(new OperationModel()
-        {
-            Operation = new OperationRequest() { Parameter1 = 2, Parameter2 = 2, Operation = "-" },
-            ExpectedResult = 0
-        });
-        Add(new OperationModel()
-        {
-            Operation = new OperationRequest() { Parameter1 = 2, Parameter2 = 2, Operation = "*" },
-            ExpectedResult = 4
-        });
-        Add(new OperationModel()
-        {
-            Operation = new OperationRequest() { Parameter1 = 2, Parameter2 = 2, Operation = "/" },
-            ExpectedResult = 1
-        });
+            Add(new OperationModel()
+            {
+                Operation = new OperationRequest() { Parameter1 = 2, Parameter2 = 2, Operation = "+" },
+                ExpectedResult = 4
+            });
+            Add(new OperationModel()
+            {
+                Operation = new OperationRequest() { Parameter1 = 2, Parameter2 = 2, Operation = "-" },
+                ExpectedResult = 0
+            });
+            Add(new OperationModel()
+            {
+                Operation = new OperationRequest() { Parameter1 = 2, Parameter2 = 2, Operation = "*" },
+                ExpectedResult = 4
+            });
+            Add(new OperationModel()
+            {
+                Operation = new OperationRequest() { Parameter1 = 2, Parameter2 = 2, Operation = "/" },
+                ExpectedResult = 1
+            });
+        }
     }
 }

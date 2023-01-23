@@ -1,5 +1,8 @@
-public class OperationResponse
+namespace app.Dto
 {
-    public decimal Result { get; set; }
-    public string? Message { get; set; }
+    public class OperationResponse
+    {
+        public decimal Result { get; set; }
+        public string? Message { get; set; }
+    }
 }
