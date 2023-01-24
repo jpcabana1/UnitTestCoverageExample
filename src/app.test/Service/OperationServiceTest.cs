@@ -4,6 +4,7 @@ using app.test.Models;
 using app.test.Stubs;
 using Microsoft.Extensions.Logging;
 using Moq;
+using System.Reflection;
 
 namespace app.test.Service
 {
@@ -42,5 +43,18 @@ namespace app.test.Service
             Assert.NotEqual("Ok", result.Message!);
         }
 
+        [Fact]
+        public void PeformCalculation_WhenSwitchCaseDefault_ThenThrowsException()
+        {
+            //Arrange
+            var value = "2.0";
+            var mockLogger = new Mock<ILogger<OperationRequest>>();
+            var service = new OperationService(mockLogger.Object);
+            var method = service.GetType().GetMethod("PeformCalculation", BindingFlags.Instance | BindingFlags.NonPublic)!;
+            object[] pars = { decimal.Parse(value), decimal.Parse(value), "error" };
+
+            //Act + Assert
+            Assert.Throws<TargetInvocationException>(() => method.Invoke(service, pars));
+        }
     }
 }

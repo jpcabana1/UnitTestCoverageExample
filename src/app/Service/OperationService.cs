@@ -1,5 +1,3 @@
-
-
 using app.Dto;
 using app.Validation;
 using FluentValidation;
@@ -48,7 +46,7 @@ namespace app.Service
                 case "-": return p1 - p2;
                 case "*": return p1 * p2;
                 case "/": return p1 / p2;
-                default: throw new ArgumentOutOfRangeException("Invalid operation");
+                default: throw new InvalidOperationException("Invalid operation");
             }
         }
     }
